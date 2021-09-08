@@ -32,6 +32,23 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <style>
+        table{
+            width:100%;
+        }
+
+        th,td{
+            padding:5px;
+            text-align: center;
+        }
+
+        th{
+            background-color: darkgreen;
+            color: white;
+            height:30px;
+        }
+
+    </style>
     </head>
     
     <body>
@@ -60,7 +77,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="{{ url('/redirects') }}" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#about">About</a></li>
                            	
                         <!-- 
@@ -75,15 +92,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         -->
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                             <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
-                            <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a href="#">Features Page 4</a></li>
-                                </ul>
-                            </li>
+
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
                             <li class="scroll-to-section">
@@ -122,10 +131,7 @@ https://templatemo.com/tm-558-klassy-cafe
 
 
                             </li>
-                        </ul>        
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
+                        </ul> 
                         <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
@@ -134,19 +140,19 @@ https://templatemo.com/tm-558-klassy-cafe
     </header>
     <!-- ***** Header Area End ***** -->
 
-    <div id="top">
-        <table align="center" bgcolor="yellow" >
+    <div id="top" class="container">
+        <table style="width: 290px" align="center">
             <tr>
-                <th style="padding: 30px;">Food Name</th>
-                <th style="padding: 30px;">Price</th>
-                <th style="padding: 30px;">Quantity</th>
-                <th style="padding: 30px;">Actions</th>
+                <th>Food Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
             </tr>
 
             <form action="{{ url('orderconfirm') }}" method="POST">
                 @csrf
                 @foreach ($data as $data)
-                <tr align="center">
+                <tr>
                     <td>
                         <input type="text" name="foodname[]" value="{{ $data->title }}" >
                     </td>
@@ -160,9 +166,9 @@ https://templatemo.com/tm-558-klassy-cafe
                 @endforeach
 
                 @foreach ($data2 as $data2)
-                <tr align="center" style="position: relative; top:-120px; right: -600px;">
+                <tr style="position: relative; left:601px; top:-150px;">
                     <td>
-                        <a href="{{ url('/remove',$data2->id) }}" class="btn btn-sm btn-danger">Remove</a>
+                        <a href="{{ url('/remove',$data2->id) }}" class="btn btn-danger">Remove</a>
                     </td>
                 </tr>
                 @endforeach

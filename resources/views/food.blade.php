@@ -1,7 +1,7 @@
 <section class="section" id="menu">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-12 text-center">
                 <div class="section-heading">
                     <h6>Our Menu</h6>
                     <h2>Our selection of cakes with quality taste</h2>
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <input type="number" name="quantity" min="1" value="1" style="width: 80px;">
-                        <input type="submit" value="Add Cart">
+                        <input type="submit" value="Add To Cart" class="btn btn-success">
                     </div>
                 </form>
 
