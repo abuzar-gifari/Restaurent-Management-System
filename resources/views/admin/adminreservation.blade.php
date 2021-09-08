@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        table{
+            border:2px solid black;
+            border-collapse: collapse;
+            width:70%;
+            margin: auto;
+        }
+
+        th,td{
+            border:2px solid black;
+            padding:5px;
+            text-align: center;
+        }
+
+        th{
+            background-color: darkgreen;
+            color: white;
+            height:30px;
+        }
+    </style>
 </head>
 <body>
     
@@ -23,18 +43,19 @@
             @includeIf('admin.navbar')
 
             <div style="position: relative; top: 30px; right: -150px;">
-                <table style="bgcolor:grey; border: 1px; ">
+                <h2 class="mt-3 text-center">All Reservation Messages</h2>
+                <table class="mt-3">
                     <tr>
-                        <th style="padding: 30px;">Name</th>
-                        <th style="padding: 30px;">Email</th>
-                        <th style="padding: 30px;">Phone</th>
-                        <th style="padding: 30px;">Date</th>
-                        <th style="padding: 30px;">Time</th>
-                        <th style="padding: 30px;">Message</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Message</th>
                     </tr>
 
                     @foreach ($data as $data)
-                        <tr align="center">
+                        <tr>
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->phone }}</td>

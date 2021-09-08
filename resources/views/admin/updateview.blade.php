@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        form{
+            width: 70%;
+            margin:auto;
+        }
+    </style>
 </head>
 <body>
     
@@ -23,32 +29,32 @@
         <div class="container-scroller">
             @includeIf('admin.navbar')
 
-            <div style="position: relative; top:60px; right:-150px;">
-
+            <div class="container-fluid" style="">
+                <h2 class="text-center">Update Food Information</h2>
                 <form action="{{ url('/update',$data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div>
-                        <label>Title</label>
-                        <input style="color:blue;" type="text" name="title" required value="{{ $data->title }}">
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input class="form-control" type="text" name="title" required value="{{ $data->title }}">
                     </div>
-                    <div>
-                        <label>Price</label>
-                        <input style="color:blue;" type="number" name="price" required value="{{ $data->price }}">
+                    <div class="mb-3">
+                        <label class="form-label">Price</label>
+                        <input class="form-control" type="number" name="price" required value="{{ $data->price }}">
                     </div>
-                    <div>
-                        <label>Description</label>
-                        <input style="color:blue;" type="text" name="description" required value="{{ $data->description }}">
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <input class="form-control" type="text" name="description" required value="{{ $data->description }}">
                     </div>
-                    <div>
-                        <label>Old Image</label>
+                    <div class="mb-3">
+                        <label class="form-label">Old Image</label>
                         <img src="/foodimage/{{$data->image}}" style="height: 100px; weight: 100px;" alt="No Image">
                     </div>
-                    <div>
-                        <label>New Image</label><br>
-                        <input type="file" name="image" required>
+                    <div class="mb-3">
+                        <label class="form-label">New Image</label><br>
+                        <input class="form-control"  type="file" name="image" required>
                     </div>
-                    <div>
-                        <input type="submit" value="Save" style="color: black">
+                    <div class="mb-3">
+                        <input class="btn btn-success" type="submit" value="Save" style="color: black">
                     </div>
                 </form>
             </div>

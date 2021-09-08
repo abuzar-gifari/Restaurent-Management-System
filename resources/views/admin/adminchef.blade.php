@@ -11,28 +11,30 @@
     <div class="container-scroller">
         @includeIf('admin.navbar')
 
-        <div style="position: relative; top:30px; right: -150px;">
-            <form action="{{ url('/uploadchef') }}" method="POST" enctype="multipart/form-data">
+        <div class="container-fluid" style="margin: auto;">
+            <h2 class="text-center">Enter Chef's Information</h2><br>
+            <form style="width: 70%; margin: auto" action="{{ url('/uploadchef') }}" method="POST" enctype="multipart/form-data">
               @csrf
-              <div>
-                  <label>Name</label>
-                  <input type="text" name="name" required placeholder="Enter Name" style="color: blue">
+              <div class="mb-3">
+                  <label class="form-label">Name</label>
+                  <input class="form-control" type="text" name="name" required placeholder="Enter Name" style="color: blue">
               </div>
-              <div>
-                  <label>Speciality</label>
-                  <input type="text" name="speciality" required placeholder="Enter the speciality" style="color: blue">
+              <div class="mb-3">
+                  <label class="form-label">Speciality</label>
+                  <input class="form-control"  type="text" name="speciality" required placeholder="Enter the speciality" style="color: blue">
               </div>
-              <div>
-                  <label>Image</label>
-                  <input type="file" name="image" required>
+              <div class="mb-3">
+                  <label class="form-label">Image</label>
+                  <input class="form-control" type="file" name="image" required>
               </div>
-              <div>
-                  <input type="submit" value="Save" style="color: black">
+              <div class="mb-3">
+                  <input class="btn btn-success" type="submit" value="Save" style="color: black">
               </div>
             </form>
-<br>
-            <div>
-              <table class="table table-bordered">
+            <br><br><br>
+            <div style="margin-bottom: 20px;">
+              <h2 class="text-center">All Chef's Details</h2><br>
+              <table class="table table-bordered text-center mb-3 w-75 m-auto">
                 <tr>
                   <th style="padding: 30px;">Name</th>
                   <th style="padding: 30px;">Speciality</th>

@@ -12,14 +12,15 @@
         @includeIf('admin.navbar')
 
         <div class="container">
-            <h1>Customer Address</h1>
 
-            <form action="{{ url('/search') }}" method="GET">
+            <form action="{{ url('/search') }}" method="GET" class="mt-3">
                 @csrf
-                <input type="text" name="search" style="color:blue;">
+                <input type="text" name="search" style="color:blue;" placeholder="Enter customer/food name" required>
                 <input type="submit" value="Search" class="btn btn-success">
             </form>
-    
+            <br><br>
+            
+            <h2 class="text-center">Add To Cart Informations</h2>
             <table>
                 <tr>
                     <th style="padding:30px;">Customer Name</th>

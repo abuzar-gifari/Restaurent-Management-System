@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        form{
+            width: 70%;
+            margin:auto;
+        }
+    </style>
 </head>
 <body>
     
@@ -21,33 +27,36 @@
         <div class="container-scroller">
             @includeIf('admin.navbar')
 
-            <div style="position: relative; top:60px; right:-150px;">
-
+            <div class="container-fluid" style="">
+                <h2 class="text-center">Enter Food Information</h2>
                 <form action="{{ url('/uploadfood') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div>
-                        <label>Title</label>
-                        <input style="color:blue;" type="text" name="title" required placeholder="Write a Title">
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input class="form-control" style="color:blue;" type="text" name="title" required placeholder="Write a Title">
                     </div>
-                    <div>
-                        <label>Price</label>
-                        <input style="color:blue;" type="number" name="price" required>
+                    <div class="mb-3">
+                        <label class="form-label">Price</label>
+                        <input class="form-control"  style="color:blue;" type="number" name="price" required>
                     </div>
-                    <div>
-                        <label>Image</label>
-                        <input type="file" name="image" required>
+                    <div class="mb-3">
+                        <label class="form-label">Image</label>
+                        <input class="form-control"  type="file" name="image" required>
                     </div>
-                    <div>
-                        <label>Description</label>
-                        <input style="color:blue;" type="text" name="description" required placeholder="Write a Description">
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <input class="form-control"  style="color:blue;" type="text" name="description" required placeholder="Write a Description">
                     </div>
-                    <div>
-                        <input type="submit" value="Save" style="color: black">
+                    <div class="mb-3">
+                        <input class="btn btn-success" type="submit" value="Save" style="color: black">
                     </div>
                 </form>
 
-                <div>
-                    <table style="background-color: black">
+
+                <br><br><br>
+                <div class="mb-3 ml-3">
+                    <h2 class="text-center">All Food's List</h2>
+                    <table style="background-color: black" class="text-center">
                         <tr>
                             <th style="padding: 30px;">Food Name</th>
                             <th style="padding: 30px;">Food Price</th>

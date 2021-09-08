@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        table{
+            border:2px solid black;
+            border-collapse: collapse;
+            width:70%;
+        }
+
+        th,td{
+            border:2px solid black;
+            padding:5px;
+            text-align: center;
+        }
+
+        th{
+            background-color: darkgreen;
+            color: white;
+            height:30px;
+        }
+    </style>
 </head>
 <body>
     
@@ -21,16 +40,17 @@
         <div class="container-scroller">
             @includeIf('admin.navbar')
             
-            <div style="position: relative; top:60px; right: -60px;">
-                <table bgcolor="grey" border="3px">
+            <div class="container">
+                <h1 class="mt-3 text-center">All Users List</h1><br>
+                <table class="mt-10 text-center" style="margin:auto">
                     <tr>
-                        <th style="padding: 30px">Name</th>
-                        <th style="padding: 30px">Email</th>
-                        <th style="padding: 30px">Action</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
                     </tr>
 
                     @foreach ($data as $data)
-                    <tr align="center">
+                    <tr>
                         <td>{{ $data->name }}</td>
                         <td>{{ $data->email }}</td>
 
