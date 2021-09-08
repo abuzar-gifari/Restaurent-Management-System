@@ -21,7 +21,7 @@
             <br><br>
             
             <h2 class="text-center">Add To Cart Informations</h2>
-            <table>
+            <table class="mb-3">
                 <tr>
                     <th style="padding:30px;">Customer Name</th>
                     <th style="padding:30px;">Customer phone</th>

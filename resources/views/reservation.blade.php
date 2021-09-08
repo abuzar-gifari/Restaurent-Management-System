@@ -36,26 +36,41 @@
                         </div>
                         <div class="col-lg-6 col-sm-12">
                           <fieldset>
-                            <input name="name" type="text" id="name" placeholder="Your Name*" required="">
+                            <input class="@error('name') is-invalid @enderror" name="name" type="text" id="name" placeholder="Your Name*">
+                            @error('name')
+                              <div class="text-danger">{{ $message }}</div>
+                            @enderror
                           </fieldset>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                           <fieldset>
-                          <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address" required="">
-                        </fieldset>
+                            <input class="@error('email') is-invalid @enderror" name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address">
+                            @error('email')
+                              <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                          </fieldset>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                           <fieldset>
-                            <input name="phone" type="text" id="phone" placeholder="Phone Number*" required="">
+                            <input class="@error('phone') is-invalid @enderror" name="phone" type="text" id="phone" placeholder="Phone Number*">
+                            @error('phone')
+                              <div class="text-danger">{{ $message }}</div>
+                            @enderror
                           </fieldset>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                          <input type="number" name="guest" placeholder="Guest Number">
+                          <input class="@error('guest') is-invalid @enderror" type="number" name="guest" placeholder="Guest Number">
+                          @error('guest')
+                            <div class="text-danger">{{ $message }}</div>
+                          @enderror
                         </div>
                         <div class="col-lg-6">
                             <div id="filterDate2">    
                               <div class="input-group date" data-date-format="dd/mm/yyyy">
-                                <input  name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
+                                <input  name="date" id="date" type="text" class="form-control @error('guest') is-invalid @enderror" placeholder="dd/mm/yyyy">
+                                @error('date')
+                                  <div class="text-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="input-group-addon" >
                                   <span class="glyphicon glyphicon-th"></span>
                                 </div>
@@ -63,11 +78,17 @@
                             </div>   
                         </div>
                         <div class="col-md-6 col-sm-12">
-                          <input type="time" name="time" placeholder="Enter Time">
+                          <input class="@error('time') is-invalid @enderror" type="time" name="time" placeholder="Enter Time">
+                          @error('time')
+                            <div class="text-danger">{{ $message }}</div>
+                          @enderror
                         </div>
                         <div class="col-lg-12">
                           <fieldset>
-                            <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
+                            <textarea class="@error('message') is-invalid @enderror" name="message" rows="6" id="message" placeholder="Message"></textarea>
+                            @error('message')
+                              <div class="text-danger">{{ $message }}</div>
+                            @enderror
                           </fieldset>
                         </div>
                         <div class="col-lg-12">

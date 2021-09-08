@@ -49,6 +49,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>Guest</th>
                         <th>Date</th>
                         <th>Time</th>
                         <th>Message</th>
@@ -59,6 +60,7 @@
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->phone }}</td>
+                            <td>{{ $data->guest }}</td>
                             <td>{{ $data->date }}</td>
                             <td>{{ $data->time }}</td>
                             <td>{{ $data->message }}</td>

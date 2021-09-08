@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Foodchef;
 use App\Models\Reservation;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -73,19 +74,40 @@ class AdminController extends Controller
 
 
     public function reservation(Request $request){ 
-        $data = new Reservation();
-
         
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->phone = $request->phone;
-        $data->guest = $request->guest;
-        $data->date = $request->date;
-        $data->time = $request->time;
-        $data->message = $request->message;
-        $data->save();
-        return redirect()->back();
-
+        try {
+            $request->validate([
+                'name'=>'required',
+                'email'=>'required',
+                'phone'=>'required',
+                'guest'=>'required',
+                'date'=>'required',
+                'time'=>'required',
+                'message'=>'required',
+            ],$messages = [
+                'name.required' => 'name is required.',
+                'email.required' => 'email is required.',
+                'phone.required' => 'phone is required.',
+                'guest.required' => 'guest no is required.',
+                'date.required' => 'date is required.',
+                'time.required' => 'time is required.',
+                'message.required' => 'message is required.',
+            ]);
+            $data = new Reservation();    
+            $data->name = $request->name;
+            $data->email = $request->email;
+            $data->phone = $request->phone;
+            $data->guest = $request->guest;
+            $data->date = $request->date;
+            $data->time = $request->time;
+            $data->message = $request->message;
+            $data->save();
+            return redirect()->back();
+        } catch (\Exception $exception) {
+            $errors = $exception->validator->getMessageBag();
+            return redirect()->back()->withErrors($errors)->withInput();
+        }
+        
     }
 
     public function viewreservation(){ 

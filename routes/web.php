@@ -26,24 +26,24 @@ Route::post('/orderconfirm',[ HomeController::class,'orderconfirm' ]);
 
 
 // Admin Controller Routes
-Route::middleware('IsAdmin')->group(function(){
-    Route::get('/users',[ AdminController::class,'user' ]);
-    Route::get('/foodmenu',[ AdminController::class,'foodmenu' ])->name('foodmenu');
-    Route::post('/uploadfood',[ AdminController::class,'upload' ]);
-    Route::get('/deleteuser/{id}',[ AdminController::class,'deleteuser' ]);
-    Route::get('/deletemenu/{id}',[ AdminController::class,'deletemenu' ]);
-    Route::get('/updateview/{id}',[ AdminController::class,'updateview' ]);
-    Route::post('/update/{id}',[ AdminController::class,'update' ]);
-    Route::get('/viewreservation',[ AdminController::class,'viewreservation' ]);
-    Route::get('/viewchef',[ AdminController::class,'viewchef' ]);
-    Route::post('/uploadchef',[ AdminController::class,'uploadchef' ]);
-    Route::get('/updatechef/{id}',[ AdminController::class,'updatechef' ]);
-    Route::get('/deletechef/{id}',[ AdminController::class,'deletechef' ]);
-    Route::post('/updatefoodchef/{id}',[ AdminController::class,'updatefoodchef' ]);
-    Route::post('/reservation',[ AdminController::class,'reservation' ]);
-    Route::get("/orders",[AdminController::class,'orders']);
-    Route::get('/search',[ AdminController::class,'search' ]);
-});
+
+Route::get('/users',[ AdminController::class,'user' ]);
+Route::get('/foodmenu',[ AdminController::class,'foodmenu' ])->name('foodmenu');
+Route::post('/uploadfood',[ AdminController::class,'upload' ]);
+Route::get('/deleteuser/{id}',[ AdminController::class,'deleteuser' ]);
+Route::get('/deletemenu/{id}',[ AdminController::class,'deletemenu' ]);
+Route::get('/updateview/{id}',[ AdminController::class,'updateview' ]);
+Route::post('/update/{id}',[ AdminController::class,'update' ]);
+Route::get('/viewreservation',[ AdminController::class,'viewreservation' ]);
+Route::get('/viewchef',[ AdminController::class,'viewchef' ]);
+Route::post('/uploadchef',[ AdminController::class,'uploadchef' ]);
+Route::get('/updatechef/{id}',[ AdminController::class,'updatechef' ]);
+Route::get('/deletechef/{id}',[ AdminController::class,'deletechef' ]);
+Route::post('/updatefoodchef/{id}',[ AdminController::class,'updatefoodchef' ]);
+Route::post('/reservation',[ AdminController::class,'reservation' ]);
+Route::get("/orders",[AdminController::class,'orders']);
+Route::get('/search',[ AdminController::class,'search' ]);
+
 
 
 
