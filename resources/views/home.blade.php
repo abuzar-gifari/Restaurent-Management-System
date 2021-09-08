@@ -87,7 +87,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                     @endauth
 
                                     @guest
-                                        Cart[0]
+                                        <a>Cart[0]</a> 
                                     @endguest
                            
                             </li> 
