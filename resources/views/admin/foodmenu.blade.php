@@ -10,6 +10,23 @@
             width: 70%;
             margin:auto;
         }
+        table{
+            border:2px solid black;
+            border-collapse: collapse;
+            /* width:100%; */
+        }
+
+        th,td{
+            border:2px solid black;
+            padding:5px;
+            text-align: center;
+        }
+
+        th{
+            background-color: darkgreen;
+            color: white;
+            height:30px;
+        }
     </style>
 </head>
 <body>
@@ -33,19 +50,31 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Title</label>
-                        <input class="form-control" style="color:blue;" type="text" name="title" required placeholder="Write a Title">
+                        <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" placeholder="Write a Title" value="{{ old('title') }}">
+                        @error('title')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Price</label>
-                        <input class="form-control"  style="color:blue;" type="number" name="price" required>
+                        <input  value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" type="number" name="price">
+                        @error('price')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Image</label>
-                        <input class="form-control"  type="file" name="image" required>
+                        <input  value="{{ old('image') }}" class="form-control @error('image') is-invalid @enderror"  type="file" name="image">
+                        @error('image')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Description</label>
-                        <input class="form-control"  style="color:blue;" type="text" name="description" required placeholder="Write a Description">
+                        <input  value="{{ old('description') }}" class="form-control @error('description') is-invalid @enderror" type="text" name="description" placeholder="Write a Description">
+                        @error('description')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <input class="btn btn-success" type="submit" value="Save" style="color: black">
@@ -56,22 +85,22 @@
                 <br><br><br>
                 <div class="mb-3 ml-3">
                     <h2 class="text-center">All Food's List</h2>
-                    <table style="background-color: black" class="text-center">
-                        <tr>
-                            <th style="padding: 30px;">Food Name</th>
-                            <th style="padding: 30px;">Food Price</th>
-                            <th style="padding: 30px;">Food Description</th>
-                            <th style="padding: 30px;">Food Image</th>
-                            <th style="padding: 30px;">Action</th>
-                            <th style="padding: 30px;">Action2</th>
+                    <table class="m-auto">
+                        <tr class="text-center">
+                            <th>Food Name</th>
+                            <th>Food Price</th>
+                            <th>Food Description</th>
+                            <th>Food Image</th>
+                            <th>Action</th>
+                            <th>Action2</th>
                         </tr>
 
                         @foreach ($data as $data)
-                        <tr align="center">
+                        <tr class="text-center">
                             <td>{{ $data->title }}</td>
                             <td>{{ $data->price }}</td>
                             <td>{{ $data->description }}</td>
-                            <td><img style="height: 50px;" src="/foodimage/{{ $data->image }}" alt="No Image"></td>
+                            <td><img style="height: 60px; width: 60px" src="/foodimage/{{ $data->image }}" alt="No Image"></td>
                             <td><a href="{{ url('/deletemenu',$data->id) }}" style="btn btn-success">Delete</a></td>
                             <td><a href="{{ url('/updateview',$data->id) }}" style="btn btn-success">Update</a></td>
                         </tr>    

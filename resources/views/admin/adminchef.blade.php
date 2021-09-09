@@ -17,21 +17,32 @@
               @csrf
               <div class="mb-3">
                   <label class="form-label">Name</label>
-                  <input class="form-control" type="text" name="name" required placeholder="Enter Name" style="color: blue">
+                  <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="Enter Name" value="{{ old('name') }}">
+                  @error('name')
+                      <div class="text-danger">{{ $message }}</div>
+                  @enderror
               </div>
               <div class="mb-3">
                   <label class="form-label">Speciality</label>
-                  <input class="form-control"  type="text" name="speciality" required placeholder="Enter the speciality" style="color: blue">
-              </div>
+                  <input class="form-control @error('speciality') is-invalid @enderror" value="{{ old('speciality') }}" type="text" name="speciality" placeholder="Enter the speciality">
+                  @error('speciality')
+                      <div class="text-danger">{{ $message }}</div>
+                  @enderror
+                </div>
               <div class="mb-3">
                   <label class="form-label">Image</label>
-                  <input class="form-control" type="file" name="image" required>
+                  <input class="form-control @error('image') is-invalid @enderror" value="{{ old('image') }}" type="file" name="image">
+                  @error('image')
+                      <div class="text-danger">{{ $message }}</div>
+                  @enderror  
               </div>
               <div class="mb-3">
                   <input class="btn btn-success" type="submit" value="Save" style="color: black">
               </div>
             </form>
+
             <br><br><br>
+
             <div style="margin-bottom: 20px;">
               <h2 class="text-center">All Chef's Details</h2><br>
               <table class="table table-bordered text-center mb-3 w-75 m-auto">

@@ -9,7 +9,7 @@
         table{
             border:2px solid black;
             border-collapse: collapse;
-            width:70%;
+            width:98%;
             margin: auto;
         }
 
@@ -23,6 +23,7 @@
             background-color: darkgreen;
             color: white;
             height:30px;
+            text-align: center;
         }
     </style>
 </head>
@@ -46,13 +47,13 @@
                 <h2 class="mt-3 text-center">All Reservation Messages</h2>
                 <table class="mt-3">
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Guest</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Message</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Phone</th>
+                        <th class="text-center">Guest</th>
+                        <th class="text-center">Date</th>
+                        <th class="text-center">Time</th>
+                        <th class="text-center">Message</th>
                     </tr>
 
                     @foreach ($data as $data)

@@ -6,6 +6,24 @@
 <html lang="en">
   <head>
     @includeIf('admin.admincss')
+    <style>
+        table{
+            border:2px solid black;
+            border-collapse: collapse;
+            width:100%;
+        }
+
+        th,td{
+            border:2px solid black;
+            padding:5px;
+            text-align: center;
+        }
+
+        th{
+            background-color: darkgreen;
+            color: white;
+        }
+    </style>
   </head>
   <body>
     <div class="container-scroller">
@@ -32,7 +50,7 @@
                     <th style="padding:30px;">Total Price</th>
                 </tr>
                 @foreach ($data as $data)
-                    <tr align="center" style="background-color: blue;">
+                    <tr>
                         <td>{{ $data->name }}</td>
                         <td>{{ $data->phone }}</td>
                         <td>{{ $data->address }}</td>

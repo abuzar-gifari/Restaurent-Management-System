@@ -35,7 +35,7 @@ Route::get('/deletemenu/{id}',[ AdminController::class,'deletemenu' ]);
 Route::get('/updateview/{id}',[ AdminController::class,'updateview' ]);
 Route::post('/update/{id}',[ AdminController::class,'update' ]);
 Route::get('/viewreservation',[ AdminController::class,'viewreservation' ]);
-Route::get('/viewchef',[ AdminController::class,'viewchef' ]);
+Route::get('/viewchef',[ AdminController::class,'viewchef' ])->name('admin.viewchef');
 Route::post('/uploadchef',[ AdminController::class,'uploadchef' ]);
 Route::get('/updatechef/{id}',[ AdminController::class,'updatechef' ]);
 Route::get('/deletechef/{id}',[ AdminController::class,'deletechef' ]);

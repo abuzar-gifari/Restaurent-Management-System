@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Foodchef;
 use App\Models\Reservation;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,19 +35,36 @@ class AdminController extends Controller
     }
 
     public function upload(Request $request){ 
-        $data = new Food();
 
-        $image = $request->image;
-        $imageName = time(). '.' . $image->getClientOriginalExtension();
-        $request->image->move('foodimage',$imageName);
+        try {
+            $request->validate([
+                'title'=>'required',
+                'price'=>'required',
+                'description'=>'required',
+                'image'=>'required'
+            ],$messages = [
+                'title.required' => 'Food title is required.',
+                'price.required' => 'Food price is required.',
+                'description.required' => 'Food description is required.',
+                'image.required' => 'Food image is required.'
+            ]);
+            $data = new Food();
 
-        $data->image = $imageName;
-        $data->title = $request->title;
-        $data->price = $request->price;
-        $data->description = $request->description;
+            $image = $request->image;
+            $imageName = time(). '.' . $image->getClientOriginalExtension();
+            $request->image->move('foodimage',$imageName);
 
-        $data->save();
-        return redirect()->back();
+            $data->image = $imageName;
+            $data->title = $request->title;
+            $data->price = $request->price;
+            $data->description = $request->description;
+
+            $data->save();
+            return redirect()->back();
+        } catch (\Exception $exception) {
+            $errors = $exception->validator->getMessageBag();
+            return redirect()->back()->withErrors($errors)->withInput();
+        }
 
     }
 
@@ -58,7 +74,9 @@ class AdminController extends Controller
     }
 
     public function update(Request $request,$id){
+
         $data=Food::find($id);
+
         $image = $request->image;
         $imageName = time(). '.' . $image->getClientOriginalExtension();
         $request->image->move('foodimage',$imageName);
@@ -70,6 +88,7 @@ class AdminController extends Controller
 
         $data->save();
         return redirect()->route('foodmenu');
+
     }
 
 
@@ -125,15 +144,33 @@ class AdminController extends Controller
     }
 
     public function uploadchef(Request $request){ 
-        $data = new Foodchef();
-        $image = $request->image;
-        $imageName = time(). '.' . $image->getClientOriginalExtension();
-        $request->image->move('chefimage',$imageName);
-        $data->image = $imageName;
-        $data->name = $request->name;
-        $data->speciality = $request->speciality;
-        $data->save();
-        return redirect()->back();
+        try {
+            $request->validate([
+                'name'=>'required',
+                'speciality'=>'required',
+                'image'=>'required'
+            ],$messages = [
+                'name.required' => 'name is required.',
+                'speciality.required' => 'speciality is required.',
+                'image.required' => 'chef\'s image is required.'
+            ]);
+            $data = new Foodchef();
+
+            $image = $request->image;
+            $imageName = time(). '.' . $image->getClientOriginalExtension();
+            $request->image->move('chefimage',$imageName);
+    
+            $data->image = $imageName;
+            $data->name = $request->name;
+            $data->speciality = $request->speciality;
+    
+            $data->save();
+            return redirect()->back();
+        } catch (\Exception $exception) {
+            $errors = $exception->validator->getMessageBag();
+            return redirect()->back()->withErrors($errors)->withInput();
+        }
+
     }
 
 
@@ -156,7 +193,7 @@ class AdminController extends Controller
         $data->speciality=$request->speciality;
 
         $data->save();
-        return redirect()->back();
+        return redirect()->route('admin.viewchef');
     }
 
     public function deletechef($id){ 

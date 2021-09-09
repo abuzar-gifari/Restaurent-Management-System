@@ -35,15 +35,18 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Title</label>
-                        <input class="form-control" type="text" name="title" required value="{{ $data->title }}">
+                        <input class="form-control" type="text" name="title" value="{{ $data->title }}">
+
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Price</label>
-                        <input class="form-control" type="number" name="price" required value="{{ $data->price }}">
+                        <input class="form-control" type="number" name="price" value="{{ $data->price }}">
+
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Description</label>
-                        <input class="form-control" type="text" name="description" required value="{{ $data->description }}">
+                        <input class="form-control" type="text" name="description" value="{{ $data->description }}">
+
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Old Image</label>
@@ -51,7 +54,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">New Image</label><br>
-                        <input class="form-control"  type="file" name="image" required>
+                        <input class="form-control" type="file" name="image">
                     </div>
                     <div class="mb-3">
                         <input class="btn btn-success" type="submit" value="Save" style="color: black">
