@@ -13,6 +13,11 @@
 
         <div class="container-fluid" style="margin: auto;">
             <h2 class="text-center">Enter Chef's Information</h2><br>
+            @if (session('msg'))
+                <div class="alert alert-success w-75 m-auto">
+                    {{ session('msg') }}
+                </div><br>
+            @endif
             <form style="width: 70%; margin: auto" action="{{ url('/uploadchef') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="mb-3">

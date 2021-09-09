@@ -45,7 +45,12 @@
             @includeIf('admin.navbar')
 
             <div class="container-fluid" style="">
-                <h2 class="text-center">Enter Food Information</h2>
+                <h2 class="text-center">Enter Food Information</h2><br>
+                @if (session('msg'))
+                    <div class="alert alert-success w-75 m-auto">
+                        {{ session('msg') }}
+                    </div><br>
+                @endif
                 <form action="{{ url('/uploadfood') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">

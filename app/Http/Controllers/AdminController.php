@@ -65,7 +65,7 @@ class AdminController extends Controller
             $data->description = $request->description;
 
             $data->save();
-            return redirect()->back();
+            return redirect()->back()->with('msg','Successfully Data Added');
         } catch (\Exception $exception) {
             $errors = $exception->validator->getMessageBag();
             return redirect()->back()->withErrors($errors)->withInput();
@@ -178,7 +178,7 @@ class AdminController extends Controller
             $data->speciality = $request->speciality;
     
             $data->save();
-            return redirect()->back();
+            return redirect()->back()->with('msg','Data Added Successfully');
         } catch (\Exception $exception) {
             $errors = $exception->validator->getMessageBag();
             return redirect()->back()->withErrors($errors)->withInput();

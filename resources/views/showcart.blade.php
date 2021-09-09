@@ -102,7 +102,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                         Cart[{{ $count }}]
                                     </a>
                                     @endauth
-
+ 
                                     @guest
                                         Cart[0]
                                     @endguest
