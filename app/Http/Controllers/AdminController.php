@@ -90,7 +90,7 @@ class AdminController extends Controller
         return redirect()->route('foodmenu');
 
     }
-
+    
 
     public function reservation(Request $request){ 
         
