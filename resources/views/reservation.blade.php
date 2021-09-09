@@ -1,7 +1,7 @@
 <section class="section" id="reservation">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 align-self-center">
+            <div class="col-lg-5 align-self-center">
                 <div class="left-text-content">
                     <div class="section-heading">
                         <h6>Contact Us</h6>
@@ -26,8 +26,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <div class="contact-form">
+                    @if (session('msg'))
+                      <div class="alert alert-success m-auto" style="width:90%">
+                        {{ session('msg') }}
+                      </div><br>
+                    @endif
                     <form id="contact" action="{{ url('reservation') }}" method="post">
                         @csrf
                       <div class="row">
@@ -35,28 +40,22 @@
                             <h4>Table Reservation</h4>
                         </div>
                         <div class="col-lg-6 col-sm-12">
-                          <fieldset>
                             <input class="@error('name') is-invalid @enderror" name="name" type="text" id="name" placeholder="Your Name*">
                             @error('name')
                               <div class="text-danger">{{ $message }}</div>
                             @enderror
-                          </fieldset>
                         </div>
                         <div class="col-lg-6 col-sm-12">
-                          <fieldset>
                             <input class="@error('email') is-invalid @enderror" name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address">
                             @error('email')
                               <div class="text-danger">{{ $message }}</div>
                             @enderror
-                          </fieldset>
                         </div>
                         <div class="col-lg-6 col-sm-12">
-                          <fieldset>
                             <input class="@error('phone') is-invalid @enderror" name="phone" type="text" id="phone" placeholder="Phone Number*">
                             @error('phone')
                               <div class="text-danger">{{ $message }}</div>
                             @enderror
-                          </fieldset>
                         </div>
                         <div class="col-md-6 col-sm-12">
                           <input class="@error('guest') is-invalid @enderror" type="number" name="guest" placeholder="Guest Number">
@@ -67,7 +66,7 @@
                         <div class="col-lg-6">
                             <div id="filterDate2">    
                               <div class="input-group date" data-date-format="dd/mm/yyyy">
-                                <input  name="date" id="date" type="text" class="form-control @error('guest') is-invalid @enderror" placeholder="dd/mm/yyyy">
+                                <input  name="date" id="date" type="text" class="form-control @error('date') is-invalid @enderror" placeholder="dd/mm/yyyy">
                                 @error('date')
                                   <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -84,12 +83,10 @@
                           @enderror
                         </div>
                         <div class="col-lg-12">
-                          <fieldset>
                             <textarea class="@error('message') is-invalid @enderror" name="message" rows="6" id="message" placeholder="Message"></textarea>
                             @error('message')
                               <div class="text-danger">{{ $message }}</div>
                             @enderror
-                          </fieldset>
                         </div>
                         <div class="col-lg-12">
                           <fieldset>

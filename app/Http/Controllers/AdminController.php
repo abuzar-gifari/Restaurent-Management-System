@@ -131,7 +131,7 @@ class AdminController extends Controller
             $data->time = $request->time;
             $data->message = $request->message;
             $data->save();
-            return redirect()->back();
+            return redirect()->back()->with('msg','Data Added Successfully');
         } catch (\Exception $exception) {
             $errors = $exception->validator->getMessageBag();
             return redirect()->back()->withErrors($errors)->withInput();
