@@ -12,28 +12,33 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    // user's list
     public function user(){ 
         $data = User::all();
         return view('admin.users',compact('data'));
     }
 
+    // user delete 
     public function deleteuser($id){ 
         $data=User::find($id);
         $data->delete();
         return redirect()->back();
     }
 
+    // food information delete
     public function deletemenu($id){ 
         $data=Food::find($id);
         $data->delete();
         return redirect()->route('foodmenu');
     }
 
+    // food menu page
     public function foodmenu(){ 
         $data = Food::all();
         return view('admin.foodmenu',compact('data'));
     }
 
+    // food information upload
     public function upload(Request $request){ 
 
         try {
@@ -68,20 +73,24 @@ class AdminController extends Controller
 
     }
 
+    // food update show page
     public function updateview($id){
         $data=Food::find($id);
         return view('admin.updateview',compact('data'));
     }
 
+    // food information update function
     public function update(Request $request,$id){
 
         $data=Food::find($id);
-
         $image = $request->image;
-        $imageName = time(). '.' . $image->getClientOriginalExtension();
-        $request->image->move('foodimage',$imageName);
 
-        $data->image = $imageName;
+        if($image){
+            $imageName = time(). '.' . $image->getClientOriginalExtension();
+            $request->image->move('foodimage',$imageName);
+            $data->image = $imageName;
+        }
+
         $data->title = $request->title;
         $data->price = $request->price;
         $data->description = $request->description;
@@ -92,6 +101,7 @@ class AdminController extends Controller
     }
     
 
+    // reservation page show
     public function reservation(Request $request){ 
         
         try {
@@ -129,6 +139,7 @@ class AdminController extends Controller
         
     }
 
+    // view reservation page
     public function viewreservation(){ 
         if (Auth::id()) {
             $data=Reservation::all();
@@ -138,11 +149,13 @@ class AdminController extends Controller
         }
     }
 
+    // chef view page
     public function viewchef(){ 
         $data = Foodchef::all();
         return view('admin.adminchef',compact('data'));
     }
 
+    // upload chef information
     public function uploadchef(Request $request){ 
         try {
             $request->validate([
@@ -174,11 +187,13 @@ class AdminController extends Controller
     }
 
 
+    // update chef information show page
     public function updatechef($id){ 
         $data=Foodchef::find($id);
         return view('admin.updatechef',compact('data'));
     }
 
+    // update food chef information
     public function updatefoodchef(Request $request,$id){ 
         $data=Foodchef::find($id);
         $image = $request->image;
@@ -196,17 +211,20 @@ class AdminController extends Controller
         return redirect()->route('admin.viewchef');
     }
 
+    // delete chef information
     public function deletechef($id){ 
         $data=Foodchef::find($id);
         $data->delete();
         return redirect()->back();
     }
 
+    // order page
     public function orders(){ 
         $data=Order::all();
         return view('admin.orders',compact('data'));
     }
 
+    // search orders
     public function search(Request $request){ 
         $search = $request->search;
         $data=Order::where('name','Like','%'.$search.'%')->orWhere('foodname','Like','%'.$search.'%')->get();
