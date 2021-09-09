@@ -54,7 +54,7 @@
                 <tr>
                   <th style="padding: 30px;">Name</th>
                   <th style="padding: 30px;">Speciality</th>
-                  <th style="padding: 30px;">Images</th>
+                  <th>Images</th>
                   <th style="padding: 30px;">Actions</th>
                 </tr>
 
@@ -63,7 +63,7 @@
                     <td>{{ $data->name }}</td>
                     <td>{{ $data->speciality }}</td>
                     <td>
-                      <img style="height: 40px;" src="chefimage/{{ $data->image }}" alt="No image">
+                      <img style="height: 65px; width:65px;" src="chefimage/{{ $data->image }}" alt="No image">
                     </td>
                     <td>
                       <a href="{{ url('/updatechef',$data->id) }}" class="btn btn-success">Update</a>
