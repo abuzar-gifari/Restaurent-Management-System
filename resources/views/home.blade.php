@@ -12,7 +12,7 @@
 
     <title>Klassy Cafe - Restaurant HTML Template</title>
 <!--
-    
+  
 TemplateMo 558 Klassy Cafe
 
 https://templatemo.com/tm-558-klassy-cafe
