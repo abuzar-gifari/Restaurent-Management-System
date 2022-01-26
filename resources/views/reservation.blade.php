@@ -1,5 +1,5 @@
 <section class="section" id="reservation">
-    <div class="container">
+    <div class="container" style="font-family: 'Source Sans Pro', sans-serif;">
         <div class="row">
             <div class="col-lg-5 align-self-center">
                 <div class="left-text-content">

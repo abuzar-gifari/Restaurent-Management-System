@@ -29,6 +29,10 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
     </head>
     
     <body>
@@ -49,7 +53,7 @@ https://templatemo.com/tm-558-klassy-cafe
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <nav class="main-nav">
+                    <nav class="main-nav" style="font-family: 'Source Sans Pro', sans-serif;">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
                             <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
@@ -60,8 +64,8 @@ https://templatemo.com/tm-558-klassy-cafe
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="{{ url('/redirects') }}" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about">About</a></li>
+                            <li class="scroll-to-section"><a style="font-size: 16px" href="{{ url('/redirects') }}" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a style="font-size: 16px" href="#about">About</a></li>
                            	
                         <!-- 
                             <li class="submenu">
@@ -73,21 +77,21 @@ https://templatemo.com/tm-558-klassy-cafe
                                 </ul>
                             </li>
                         -->
-                            <li class="scroll-to-section"><a href="#menu">Menu</a></li>
-                            <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
+                            <li class="scroll-to-section"><a style="font-size: 16px" href="#menu">Menu</a></li>
+                            <li class="scroll-to-section"><a style="font-size: 16px" href="#chefs">Chefs</a></li> 
                             
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
+                            <li class="scroll-to-section"><a style="font-size: 16px" href="#reservation">Contact Us</a></li> 
                             <li class="scroll-to-section">
                                 
                                     @auth
-                                    <a href="{{ url('/showcart',Auth::user()->id) }}">
+                                    <a style="font-size: 16px" href="{{ url('/showcart',Auth::user()->id) }}">
                                         Cart[{{ $count }}]
                                     </a>
                                     @endauth
 
                                     @guest
-                                        <a>Cart[0]</a> 
+                                        <a style="font-size: 16px">Cart[0]</a> 
                                     @endguest
                            
                             </li> 
@@ -177,10 +181,10 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="left-text-content">
                         <div class="section-heading">
-                            <h6>About Us</h6>
-                            <h2>We Leave A Delicious Memory For You</h2>
+                            <h6 style="font-family: 'Source Sans Pro', sans-serif;">About Us</h6>
+                            <h2 style="font-family: 'Source Sans Pro', sans-serif;">We Leave A Delicious Memory For You</h2>
                         </div>
-                        <p>Klassy Cafe is one of the best <a href="https://templatemo.com/tag/restaurant" target="_blank" rel="sponsored">restaurant HTML templates</a> with Bootstrap v4.5.2 CSS framework. You can download and feel free to use this website template layout for your restaurant business. You are allowed to use this template for commercial purposes. <br><br>You are NOT allowed to redistribute the template ZIP file on any template donwnload website. Please contact us for more information.</p>
+                        <p style="font-family: 'Source Sans Pro', sans-serif;">Klassy Cafe is one of the best <a href="https://templatemo.com/tag/restaurant" target="_blank" rel="sponsored">restaurant HTML templates</a> with Bootstrap v4.5.2 CSS framework. You can download and feel free to use this website template layout for your restaurant business. You are allowed to use this template for commercial purposes. <br><br>You are NOT allowed to redistribute the template ZIP file on any template donwnload website. Please contact us for more information.</p>
                         <div class="row">
                             <div class="col-4">
                                 <img src="assets/images/about-thumb-01.jpg" alt="">
@@ -225,12 +229,12 @@ https://templatemo.com/tm-558-klassy-cafe
             <div class="row">
                 <div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
-                        <h6>Klassy Week</h6>
-                        <h2>This Week’s Special Meal Offers</h2>
+                        <h6 style="font-family: 'Source Sans Pro', sans-serif;">Klassy Week</h6>
+                        <h2 style="font-family: 'Source Sans Pro', sans-serif;">This Week’s Special Meal Offers</h2>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="font-family: 'Source Sans Pro', sans-serif;">
                 <div class="col-lg-12">
                     <div class="row" id="tabs">
                         <div class="col-lg-12">
@@ -249,7 +253,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         <div class="col-lg-12">
                             <section class='tabs-content'>
                                 <article id='tabs-1'>
-                                    <div class="row">
+                                    <div class="row" style="font-family: 'Source Sans Pro', sans-serif;">
                                         <div class="col-lg-6">
                                             <div class="row">
                                                 <div class="left-list">
@@ -487,7 +491,7 @@ https://templatemo.com/tm-558-klassy-cafe
     
     <!-- ***** Footer Start ***** -->
     <footer>
-        <div class="container">
+        <div class="container" style="font-family: 'Source Sans Pro', sans-serif;">
             <div class="row">
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">

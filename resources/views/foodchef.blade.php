@@ -1,5 +1,5 @@
 <section class="section" id="chefs">
-    <div class="container">
+    <div class="container" style="font-family: 'Source Sans Pro', sans-serif;">
         <div class="row">
             <div class="col-lg-4 offset-lg-4 text-center">
                 <div class="section-heading">

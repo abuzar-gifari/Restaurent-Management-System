@@ -32,6 +32,10 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
         table{
             width:100%;
@@ -66,7 +70,7 @@ https://templatemo.com/tm-558-klassy-cafe
     
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
-        <div class="container">
+        <div class="container" style="font-family: 'Source Sans Pro', sans-serif;">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
@@ -140,7 +144,7 @@ https://templatemo.com/tm-558-klassy-cafe
     </header>
     <!-- ***** Header Area End ***** -->
 
-    <div id="top" class="container">
+    <div id="top" class="container" style="font-family: 'Source Sans Pro', sans-serif;">
         <table style="width: 290px" align="center">
             <tr>
                 <th>Food Name</th>
